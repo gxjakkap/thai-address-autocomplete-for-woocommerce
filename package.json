@@ -1,0 +1,16 @@
+{
+	"name": "thai-address-autocomplete-for-woocommerce",
+	"private": true,
+	"description": "Development tooling only. The plugin ships plain JavaScript and needs no build step.",
+	"license": "GPL-2.0-or-later",
+	"scripts": {
+		"test:js": "node --test tests/js/*.test.js",
+		"env:latest": "wp-env start",
+		"env:min": "cd tests/env/min && wp-env start",
+		"zip": "bash bin/build-zip.sh"
+	},
+	"devDependencies": {
+		"@wordpress/env": "^10.0.0",
+		"playwright": "^1.48.2"
+	}
+}
