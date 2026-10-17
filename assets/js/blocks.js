@@ -3,8 +3,11 @@
  *
  * Registers a forced inner block in the shipping and billing address blocks through
  * @woocommerce/blocks-checkout (registerCheckoutBlock). WooCommerce renders it even if the
- * checkout page was never re-saved. A pick writes to the cart store (wc/store/cart), and
- * WooCommerce's own fields re-render from there. WooCommerce-rendered fields are never touched.
+ * checkout page was never re-saved. WooCommerce places forced inner blocks after the address
+ * fields, so the lookup is shown in a node of its own inserted just above them, and falls back to
+ * the block's own position if that markup is not found. A pick writes to the cart store
+ * (wc/store/cart), and WooCommerce's own fields re-render from there. WooCommerce-rendered
+ * nodes are never moved or modified.
  */
 ( function ( wp, wc, tac ) {
 	'use strict';
@@ -35,6 +38,13 @@
 	}
 
 	function mount( container, type ) {
+		var fields = container.parentNode && container.parentNode.querySelector( ':scope > .wc-block-components-address-address-wrapper' );
+		var host = container;
+		if ( fields ) {
+			host = document.createElement( 'div' );
+			host.className = 'tac-block-lookup is-above';
+			fields.parentNode.insertBefore( host, fields );
+		}
 		var id = 'thai-address-autocomplete-' + type;
 		var previous = '';
 		var wrap = document.createElement( 'div' );
@@ -50,7 +60,7 @@
 		label.textContent = cfg.i18n.lookupLabel;
 		wrap.appendChild( input );
 		wrap.appendChild( label );
-		container.appendChild( wrap );
+		host.appendChild( wrap );
 
 		function sync() {
 			wrap.classList.toggle( 'is-active', document.activeElement === input || !! input.value );
@@ -101,7 +111,11 @@
 
 		return function () {
 			box.detach();
-			container.textContent = '';
+			if ( host === container ) {
+				container.textContent = '';
+			} else {
+				host.remove();
+			}
 		};
 	}
 

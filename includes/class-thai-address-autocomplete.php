@@ -373,7 +373,6 @@ final class Thai_Address_Autocomplete {
 		$response = new WP_REST_Response( $meta['payload'] );
 		$current  = (string) $request->get_param( 'v' ) === $meta['hash'];
 		$response->header( 'Cache-Control', $current ? 'public, max-age=31536000, immutable' : 'public, max-age=300' );
-		$response->header( 'ETag', '"' . $meta['hash'] . '"' );
 		return $response;
 	}
 

@@ -49,6 +49,10 @@
 	margin-top: 16px;
 }
 
+.tac-block-lookup.is-above {
+	margin: 0 0 16px;
+}
+
 .tac-sr-only {
 	position: absolute !important;
 	width: 1px;

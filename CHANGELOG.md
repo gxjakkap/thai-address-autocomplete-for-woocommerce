@@ -3,6 +3,14 @@
 All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses [Semantic Versioning](https://semver.org/).
 
+## [1.0.1] - 2026-10-18
+
+### Changed
+- Block checkout: the lookup field now sits above the address fields instead of below them.
+- The dataset endpoint no longer sends an `ETag`. Its URL is versioned and cached as immutable.
+- Dev: `composer.json` pins the platform to PHP 7.4, so `composer install` works on any PHP from 7.4 up.
+- Dev: `npm run zip` uses `tar` instead of `rsync`.
+
 ## [1.0.0] - 2026-10-17
 
 ### Added

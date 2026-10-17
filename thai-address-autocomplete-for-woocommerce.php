@@ -3,7 +3,7 @@
  * Plugin Name:          Thai Address Autocomplete for WooCommerce
  * Plugin URI:           https://github.com/gxjakkap/thai-address-autocomplete-for-woocommerce
  * Description:          Suggests Thai subdistrict, district, province and postcode as customers type, and fills the address fields. Works with block and classic checkout and My Account. Data ships with the plugin; nothing is sent to third parties.
- * Version:              1.0.0
+ * Version:              1.0.1
  * Requires at least:    6.3
  * Requires PHP:         7.4
  * Requires Plugins:     woocommerce
@@ -22,7 +22,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'THAI_ADDRESS_AUTOCOMPLETE_VERSION', '1.0.0' );
+define( 'THAI_ADDRESS_AUTOCOMPLETE_VERSION', '1.0.1' );
 define( 'THAI_ADDRESS_AUTOCOMPLETE_FILE', __FILE__ );
 define( 'THAI_ADDRESS_AUTOCOMPLETE_DIR', plugin_dir_path( __FILE__ ) );
 define( 'THAI_ADDRESS_AUTOCOMPLETE_MIN_WC', '8.3' );

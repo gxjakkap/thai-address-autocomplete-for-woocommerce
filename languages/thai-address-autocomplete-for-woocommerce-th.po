@@ -2,7 +2,7 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Thai Address Autocomplete for WooCommerce 1.0.0\n"
+"Project-Id-Version: Thai Address Autocomplete for WooCommerce 1.0.1\n"
 "Report-Msgid-Bugs-To: https://github.com/gxjakkap/thai-address-autocomplete-for-woocommerce/issues\n"
 "Last-Translator: Jakkaphat Chalermphanaphan <gunt@guntxjakka.me>\n"
 "Language-Team: Thai\n"

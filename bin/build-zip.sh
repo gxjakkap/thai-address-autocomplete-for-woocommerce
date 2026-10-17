@@ -7,7 +7,7 @@ VERSION=$(sed -n 's/^ \* Version: *//p' "$SLUG.php")
 STAGE=$(mktemp -d)
 trap 'rm -rf "$STAGE"' EXIT
 mkdir -p "$STAGE/$SLUG" dist
-rsync -a --exclude-from=.distignore ./ "$STAGE/$SLUG/"
+tar -cf - --exclude-from=.distignore . | tar -xf - -C "$STAGE/$SLUG"
 rm -f "dist/$SLUG-$VERSION.zip"
 (cd "$STAGE" && zip -qr -X - "$SLUG") > "dist/$SLUG-$VERSION.zip"
 echo "dist/$SLUG-$VERSION.zip"

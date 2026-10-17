@@ -65,7 +65,6 @@ Then run `wp transient delete thai_address_autocomplete_meta`.
 
 ## Known limitations
 
-- On block checkout the lookup field sits below each address block's fields.
 - Picking a suggestion replaces address line 2 when that's the subdistrict field. Address line 1 is never replaced.
 - Names are filled without the administrative prefix (`บางมด`, not `แขวงบางมด`).
 
